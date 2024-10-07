@@ -21,12 +21,20 @@
     <!--click here to change value to the 'Show Quantity'-->
     <button onclick="
         cartQuantity = cartQuantity + 1;
+        // Alternatives
+        //cartQuantity += 1;
+        //cartQuantity ++;
+
+
+
         console.log(`Cart Quantity: ${cartQuantity}`);
 
     ">Add to Cart</button>
 
     <button onclick="
-        cartQuantity = cartQuantity + 2;
+        // cartQuantity = cartQuantity + 2;
+        cartQuantity += 2;
+
         console.log(`Cart Quantity: ${cartQuantity}`);
 
         ">+2</button>
