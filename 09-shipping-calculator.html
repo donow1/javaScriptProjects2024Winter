@@ -1,0 +1,185 @@
+<!-- tutorial version -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+
+<body>
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" />
+    <button
+        onclick="
+            calculateTotal();
+        " 
+        onkeydown="
+            handleCostKeydown(event);
+        "
+    >Calculate</button>
+
+    <p class="js-total-cost"></p>
+    
+    <!-- Steps:
+    1 when we click the button, we will get the number of the inout
+    2 if amount is < 40, add $10; if it is >= 40, add no extra money
+    3 Diaplay total on the page -->
+
+
+    <script>
+
+        function handleCostKeydown(event) {
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `The total cost is: $ ${cost}`;
+        }
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- The second version: put the productPrice in the parameter
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Calculator</title>
+</head>
+
+<body>
+    <h2>Amazon Shipping Calculator</h2>
+    <p>+ $10 for orders under $40</p>
+    <p>Free shipping for orders more than and include $40</p>
+   
+     <form>
+        <label for="price">Enter your product price: </label>
+        <input type="number" id="price" name="price" min="0" step="0.01"  />
+     </form>
+
+
+    <button onclick="calculateShippingCost(document.getElementById('price').value)">Calculate</button>
+
+    <p class="showFinalCost"></p>
+
+
+
+    <script>
+
+
+        // calculateShippingCost() determine whether it is less than 40 or equal andor above 40; decide the shipping price
+        function calculateShippingCost(productPrice) {
+            productPrice = parseFloat(productPrice);
+            let finalCost = 0;
+
+            if(productPrice > 0 && productPrice < 40){
+                finalCost = productPrice + 10;
+            }else{
+                finalCost = productPrice;
+            }
+            
+            document.querySelector('.showFinalCost').innerHTML = `Your final cost is ${finalCost}`;
+
+        };
+
+
+        
+    </script>
+
+    
+</body>
+</html> -->
+
+
+
+<!-- The first version -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Calculator</title>
+</head>
+
+<body>
+    <h2>Amazon Shipping Calculator</h2>
+    <p>+ $10 for orders under $40</p>
+    <p>Free shipping for orders more than and include $40</p>
+   
+     <form>
+        <label for="price">Enter your product price: </label>
+        <input type="number" id="price" name="price" min="0" step="0.01"  />
+     </form>
+
+
+    <button onclick="calculateShippingCost()">Calculate</button>
+
+    <p class="showFinalCost"></p>
+
+
+
+    <script>
+
+
+        // calculateShippingCost() determine whether it is less than 40 or equal andor above 40; decide the shipping price
+        function calculateShippingCost() {
+            let productPrice = parseFloat(document.getElementById('price').value);
+            let finalCost = 0;
+
+            if(productPrice > 0 && productPrice < 40){
+                finalCost = productPrice + 10;
+            }else{
+                finalCost = productPrice;
+            }
+            
+            document.querySelector('.showFinalCost').innerHTML = `Your final cost is ${finalCost}`;
+
+        };
+
+
+        
+    </script>
+
+    
+</body>
+</html> -->
